@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>Projects</h1>
+{% endblock %}
+
+
+{% block content %}
+	{{ super() }}
+
+<div class="container-fluid text-white">
+<div class="px-4 py-5 my-5 text-center">
+
+<div class="m-4">
+<h2 class="display-8 fw-bold text-white">Personal Projects</h2>
+<br>
+    <div class="accordion" id="myAccordion">
+
+        <div class="accordion-item bg-custom">
+            <h2 class="accordion-header" id="headingOne">
+		    <button type="button" class="accordion-button collapsed bg-custom d-block text-center" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+			    <h4>Project 1: Car Damage Classifier</h4>
+		    </button>									
+            </h2>
+
+            <div id="collapseOne" class="accordion-collapse " data-bs-parent="#myAccordion">
+                <div class="card-body">
+
+	<div class="container">
+			<div class="display-8 fw-bold text-white">A web app that classifies images of car damage into three categories: (i) windshield, (ii) bumper, or (iii) headlight. This algorithm was trained using a Convolutional Neural Network (CNN) with ResNet-34 architecture.{% from 'bootstrap5/form.html' import render_form %}{{ render_form(form) }} Prediction: {{ prediction }}</div>
+			<div class="display-4 fw-bold text-white"><img src={{ url_for('static', filename='picture') }} class="img-thumbnail" height="25"> </div>
+		</div></div></div>
+
+		</div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

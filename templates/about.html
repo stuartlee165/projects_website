@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block body %}
+
+
+{% endblock %}
+{% block content %}
+		{{ super() }}
+
+<div class="container-fluid text-white">
+<div class="px-4 py-5 my-5 text-center">
+
+<h2 class="display-8 fw-bold text-white">Experience</h2>
+<br>
+<h3 class="display-8 fw-bold text-white">Starling Bank</h3>
+<h4 class="display-8 fw-bold text-white">Data Scientist - London: May 2022 - Present</h3>
+<br>
+<h3 class="display-8 fw-bold text-white">Credit Agricole Investment Bank</h3>
+<h4 class="display-8 fw-bold text-white">Leveraged Finance Associate - London: January 2017 - June 2021</h3>
+<br>
+<h3 class="display-8 fw-bold text-white">Pacican Academy</h3>
+<h4 class="display-8 fw-bold text-white">English Language Teacher - Shanghai: September 2014 - June 2015</h3>
+<br>
+<h3 class="display-8 fw-bold text-white">J.P. Morgan Asset Management</h3>
+<h4 class="display-8 fw-bold text-white">Contractor: January 2010 - August 2012</h3>
+  </div>
+</div>
+
+<div class="container-fluid text-white">
+<div class="px-4 py-5 my-5 text-center">
+			<div class="container">
+		<a href="https://www.flaticon.com/free-stickers/animals">
+		  <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='fox2.png') }}" alt="" width="100" height="100" href="https://www.flaticon.com/free-stickers/animals" data-toggle="popover" title="Thank you flaticon for making this cute fox icon freely available!">
+    	 </a> 
+	</div>
+
+<h2 class="display-8 fw-bold text-white">Education</h2>
+<br>
+<h3 class="display-8 fw-bold text-white">General Assembly</h3>
+<h4 class="display-8 fw-bold text-white">Data Science Course: 2021</h3>
+<br>
+<h3 class="display-8 fw-bold text-white">Imperial College London</h3>
+<h4 class="display-8 fw-bold text-white">MSc Finance: 2015-2016</h3>
+<br>
+<h3 class="display-8 fw-bold text-white">Warwick University</h3>
+<h4 class="display-8 fw-bold text-white">BEng Civil Engineering 1st Class: 2010-2013</h3>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+Flask
+Bootstrap-Flask
+flask_wtf
+WTForms
+Jinja2
+gunicorn
