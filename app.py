@@ -56,6 +56,7 @@ from flask import (
 ###import pickle
 ###import io
 ###
+
 app = Flask(__name__)
 app.config.from_pyfile("config.py")
 bootstrap = Bootstrap5(app)
@@ -126,3 +127,7 @@ def about():
     About Page
     """
     return render_template("about.html")
+
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0")
