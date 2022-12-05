@@ -47,15 +47,15 @@ from flask import (
     flash,
 )
 
-import numpy as np
-from fastai.vision import *
-from fastbook import *
-
-from fastai.vision.widgets import *
-
-import pickle
-import io
-
+###import numpy as np
+###from fastai.vision import *
+###from fastbook import *
+###
+###from fastai.vision.widgets import *
+###
+###import pickle
+###import io
+###
 app = Flask(__name__)
 app.config.from_pyfile("config.py")
 bootstrap = Bootstrap5(app)
@@ -66,12 +66,12 @@ bootstrap = Bootstrap5(app)
 # all the Bootstrap files and general structure is available to the application.
 # App uses Jinja2 inheritance to extend the base template.
 # bootstrap = Bootstrap(app)
-cwd = os.getcwd()
-path = cwd + "/model"
-address = path + "/model.pkl"
-
-# Loading  saved model
-model = load_learner(address)
+###cwd = os.getcwd()
+###path = cwd + "/model"
+###address = path + "/model.pkl"
+###
+#### Loading  saved model
+###model = load_learner(address)
 
 
 class LoginForm(FlaskForm):
@@ -91,25 +91,7 @@ def index():
     """
     Home Page
     """
-    form = PictureForm()
-    if form.validate_on_submit():
-        static_files = app.root_path + "/static/"
-        file_path = static_files + "picture"
-        form.file.data.save(file_path)
-
-        file = form.file.data
-        # Resizing img to 224 X 224 , This is the size on which model was
-        # trained
-        # img = open_image(io.BytesIO(file))
-        img = PILImage.create(file)
-        # Prediction using model
-        prediction = model.predict(img)[0]
-        session["prediction"] = str(prediction)
-
-        return redirect(url_for("index"))
-    return render_template(
-        "index.html", form=form, prediction=session.get("prediction")
-    )
+    return render_template("index.html")
 
 
 @app.route("/projects", methods=["GET", "POST"])
@@ -126,10 +108,10 @@ def projects():
         file = form.file.data
         # Resizing img to 224 X 224 , This is the size on which model was
         # trained
-        #         img = open_image(io.BytesIO(file))
         img = PILImage.create(file)
         # Prediction using model
-        prediction = model.predict(img)[0]
+        ###prediction = model.predict(img)[0]
+        prediction = "bumper"
         session["prediction"] = str(prediction)
 
         return redirect(url_for("projects"))
@@ -144,18 +126,3 @@ def about():
     About Page
     """
     return render_template("about.html")
-
-
-@app.route("/picture-upload", methods=["GET", "POST"])
-def picture_upload():
-    """ """
-    form = PictureForm()
-    if form.validate_on_submit():
-        old_name = session.get("picture_file")
-        if old_name is not None and old_name != form.file.data:
-            flash("looks like you have changed your picture!")
-        static_files = app.root_path + "/static/"
-        file_path = static_files + "picture"
-        form.file.data.save(file_path)
-        return redirect(url_for("picture_upload"))
-    return render_template("picture_upload.html", form=form)
