@@ -47,15 +47,18 @@ from flask import (
     flash,
 )
 
-###import numpy as np
-###from fastai.vision import *
-###from fastbook import *
-###
-###from fastai.vision.widgets import *
-###
-###import pickle
-###import io
-###
+import numpy as np
+from fastai.vision import *
+import torch
+from PIL import Image
+
+from fastbook import *
+
+from fastai.vision.widgets import *
+
+import pickle
+import io
+
 
 app = Flask(__name__)
 app.config.from_pyfile("config.py")
@@ -67,12 +70,13 @@ bootstrap = Bootstrap5(app)
 # all the Bootstrap files and general structure is available to the application.
 # App uses Jinja2 inheritance to extend the base template.
 # bootstrap = Bootstrap(app)
-###cwd = os.getcwd()
-###path = cwd + "/model"
-###address = path + "/model.pkl"
-###
-#### Loading  saved model
-###model = load_learner(address)
+cwd = os.getcwd()
+path = cwd + "/model"
+address = path + "/model.pkl"
+
+# Loading  saved model
+#model = torch.load(address, map_location=torch.device("cpu"))
+model = load_learner(address)
 
 
 class LoginForm(FlaskForm):
@@ -111,8 +115,7 @@ def projects():
         # trained
         img = PILImage.create(file)
         # Prediction using model
-        ###prediction = model.predict(img)[0]
-        prediction = "bumper"
+        prediction = model.predict(img)[0]
         session["prediction"] = str(prediction)
 
         return redirect(url_for("projects"))
