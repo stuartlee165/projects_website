@@ -75,7 +75,7 @@ path = cwd + "/model"
 address = path + "/model.pkl"
 
 # Loading  saved model
-#model = torch.load(address, map_location=torch.device("cpu"))
+# model = torch.load(address, map_location=torch.device("cpu"))
 model = load_learner(address)
 
 
