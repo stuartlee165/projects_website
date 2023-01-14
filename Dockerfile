@@ -63,3 +63,11 @@ CMD ["python","app.py"]
 
 # View website in browser
 ### http://0.0.0.0:80
+
+
+# To deploy the container on gcp:
+# $ gcloud builds submit --tag gcr.io/PROJECT-ID/image-name
+# Then deploy the container 
+# $ gcloud run deploy --image gcr.io/PROJECT-ID/container-name --platform managed
+# Alternatively the deployment can be done using the GUI
+# https://console.cloud.google.com/run?_ga=2.112811590.313737761.1591368161-572251819.1590763098&amp;_gac=1.61558494.1591368161.CjwKCAjw2uf2BRBpEiwA31VZj5hm5tgEHH-Ldim6HaH954LjVPoeEdbL9XkMUnSw3yKCOv1UYdvGdRoCzasQAvD_BwE 

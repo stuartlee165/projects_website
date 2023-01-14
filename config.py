@@ -1,5 +1,5 @@
 """Flask configuration."""
-from os import environ, path
+from os import environ, path, urandom
 
 # Python-dotenv reads key-value pairs from a .env file and can set them as environment variables.
 # from dotenv import load_dotenv
@@ -10,6 +10,6 @@ basedir = path.abspath(path.dirname(__file__))
 
 # "development" => enables debug mode
 # when using in procuction change to "production"
-SECRET_KEY = "highonthehilltherewasthorwithhishammer"
+SECRET_KEY = urandom(64)
 FLASK_ENV = "development"
 # DEBUG = True
